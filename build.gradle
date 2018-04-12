@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+bootJar {
+	baseName = 'MathOperation'
+	version =  '0.1.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	// https://mvnrepository.com/artifact/org.python/jython-standalone
+	compile group: 'org.python', name: 'jython-standalone', version: '2.7.0'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
